@@ -85,19 +85,19 @@ jobs:
 
     - name: Login to Docker hub
       env:
-        DOCKER_USER: ${{ secrets.puthalathj }}
-        DOCKER_PASSWORD: ${{ secrets.dckr_pat_d-Gw_amq4AKG89XmH7BJP1F_2pM }}
+        DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
 
     - name: Build the Docker image for Fastapi app
       env:
-        DOCKER_USER: ${{ secrets.puthalathj }}
-      run: docker build . -f Dockerfile -t jputhalath/titanic-fastapi-m3m4project:latest
+        DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+      run: docker build . -f Dockerfile -t jputhalath/titanic-fastapi:latest
 
     - name: Push the Docker Image
       env:
-        DOCKER_USER: ${{ secrets.puthalathj }}
-      run: docker push jputhalath/titanic-fastapi-m3m4project
+        DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+      run: docker push jputhalath/titanic-fastapi
 
     - name: Logout to Docker hub
       run: docker logout
