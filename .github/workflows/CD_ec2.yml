@@ -13,10 +13,10 @@ jobs:
 
     steps:
       - name: Pull Docker Image
-        run: sudo docker pull $DOCKER_USER/titanic-fastapi:latest
+        run: sudo docker pull puthalathj/titanic-fastapi:latest
     
       - name: Delete Old Docker Container
         run: sudo docker rm -f titanic-fastapi-container || true
     
       - name: Run Docker Container
-        run: sudo docker run -it -d -p 8080:8080 --name titanic-fastapi-container $DOCKER_USER/titanic-fastapi:latest
+        run: sudo docker run -it -d -p 8080:8080 --name titanic-fastapi-container puthalathj/titanic-fastapi:latest
